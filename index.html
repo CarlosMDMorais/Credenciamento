@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Presença - Início</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="/img/logo_esa_35.png" alt="Logo" class="logo">
+    </header>
+    <div class="contentbox">
+        <textarea id="presenceList" placeholder="Sejam bem-vindos, cole aqui sua lista de presença."></textarea>
+        <button onclick="submitList()">Inserir</button>
+    </div>
+    <script>
+        function submitList() {
+            const presenceList = document.getElementById('presenceList').value;
+            const namesArray = presenceList.split('\n').filter(name => name.trim() !== '').map(name => name.trim()).sort();
+            localStorage.setItem('namesList', JSON.stringify(namesArray));
+            window.location.href = 'presenca.html';
+        }
+    </script>
+</body>
+</html>

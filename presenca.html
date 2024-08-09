@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Presença - Detalhes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+    </header>
+    <div class="contentbox">
+        <div class="search-container">
+            <input type="text" id="searchBox" placeholder="Pesquisar...">
+            <button id="clearButton">Limpar</button>
+        </div>
+        <ul id="detailedList"></ul>
+        <div class="indicator">
+            <p>Total de inscritos: <span id="totalInscritos">0</span></p>
+            <p>Total de presentes: <span id="totalPresentes">0</span></p>
+        </div>
+        <button id="exportButton">Exportar Selecionados</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

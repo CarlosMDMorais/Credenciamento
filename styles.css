@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px 0; /* Margem de 20px em cima e embaixo */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 40px); /* Ajusta a altura para compensar a margem */
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 200px;
+}
+
+.contentbox {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 500px; /* Define a largura fixa para presenca.html */
+    box-sizing: border-box;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 100%; /* Ajustado para se ajustar ao espaço disponível */
+    max-width: calc(100% - 120px); /* Reduz a largura máxima para deixar espaço para o botão */
+    padding: 10px;
+    margin-right: 10px; /* Espaçamento entre o campo de pesquisa e o botão */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 450px; /* Define a largura fixa */
+    height: 450px; /* Define a altura fixa */
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    resize: none; /* Impede o redimensionamento do textarea */
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 10px auto; /* Ajusta a margem para o novo botão */
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Estilo específico para o botão de limpar */
+#clearButton {
+    background-color: #dc3545; /* Cor diferente para distinguir */
+}
+
+#clearButton:hover {
+    background-color: #c82333;
+}
+
+/* Estilo específico para o botão de exportar */
+#exportButton {
+    background-color: #007bff; /* Cor diferente para distinguir */
+}
+
+#exportButton:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px; /* Altura fixa para a lista */
+    overflow-y: auto;  /* Adiciona a barra de rolagem vertical */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+li {
+    margin: 5px 10px;
+    padding: 5px;
+    cursor: pointer; /* Adiciona o cursor de ponteiro */
+}
+
+li:hover {
+    background-color: #28a745; /* Cor do botão no hover */
+    color: white; /* Cor do texto ao passar o mouse */
+}
+
+/* Estilo para itens selecionados */
+li.selected {
+    background-color: #218838; /* Cor de seleção */
+    color: white;
+}
+
+.indicator {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.indicator p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
