@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchBox = document.getElementById('searchBox');
     const clearButton = document.getElementById('clearButton');
     const exportButton = document.getElementById('exportButton');
+    const saveButton = document.getElementById('saveButton');
+    const clearAllButton = document.getElementById('clearAllButton');
     const detailedList = document.getElementById('detailedList');
     const totalInscritos = document.getElementById('totalInscritos');
     const totalPresentes = document.getElementById('totalPresentes');
@@ -11,6 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const names = JSON.parse(localStorage.getItem('namesList')) || [];
         detailedList.innerHTML = names.map((name, index) => `<li data-index="${index}">${index + 1}. ${name}</li>`).join('');
         totalInscritos.textContent = names.length;
+
+        // Carregar seleções salvas
+        const savedSelections = JSON.parse(localStorage.getItem('savedSelections')) || [];
+        detailedList.querySelectorAll('li').forEach(item => {
+            if (savedSelections.includes(item.textContent.replace(/^\d+\.\s*/, ''))) {
+                item.classList.add('selected');
+            }
+        });
+        updateCounters();
     }
 
     // Função para filtrar a lista com base na pesquisa
@@ -37,6 +48,22 @@ document.addEventListener('DOMContentLoaded', () => {
         filterList(); // Atualiza a lista após limpar a pesquisa
     }
 
+    // Função para salvar os itens selecionados no localStorage
+    function saveSelections() {
+        const selectedItems = Array.from(detailedList.querySelectorAll('li.selected')).map(item => item.textContent.replace(/^\d+\.\s*/, ''));
+        localStorage.setItem('savedSelections', JSON.stringify(selectedItems));
+        alert('Seleções salvas com sucesso!'); // Feedback para o usuário
+    }
+
+    // Função para limpar todas as seleções e o localStorage
+    function clearAll() {
+        localStorage.removeItem('namesList');
+        localStorage.removeItem('savedSelections');
+        detailedList.innerHTML = '';
+        searchBox.value = '';
+        updateCounters();
+    }
+
     // Função para exportar os itens selecionados para um arquivo CSV
     function exportSelected() {
         const selectedItems = Array.from(detailedList.querySelectorAll('li.selected'));
@@ -61,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     searchBox.addEventListener('input', filterList);
     detailedList.addEventListener('click', toggleSelection);
     clearButton.addEventListener('click', clearSearch);
+    saveButton.addEventListener('click', saveSelections);
+    clearAllButton.addEventListener('click', clearAll);
     exportButton.addEventListener('click', exportSelected);
 
     loadList(); // Carrega a lista quando a página é carregada
