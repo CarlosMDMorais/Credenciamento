@@ -75,11 +75,11 @@ button:hover {
 }
 
 /* Estilo específico para o botão de limpar */
-#clearButton {
+#clearButton, #clearAllButton {
     background-color: #dc3545; /* Cor diferente para distinguir */
 }
 
-#clearButton:hover {
+#clearButton:hover, #clearAllButton:hover {
     background-color: #c82333;
 }
 
@@ -90,6 +90,15 @@ button:hover {
 
 #exportButton:hover {
     background-color: #0056b3;
+}
+
+/* Estilo específico para o botão de salvar */
+#saveButton {
+    background-color: #28a745; /* Verde para o botão salvar */
+}
+
+#saveButton:hover {
+    background-color: #218838;
 }
 
 ul {
@@ -132,48 +141,15 @@ li.selected {
     color: #333;
 }
 
-/* Adiciona estilo para a linha de botões */
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+@media (max-width: 600px) {
+    .contentbox {
+        width: calc(100% - 20px); /* Ajuste de largura para evitar barra de rolagem horizontal */
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    textarea, ul {
+        width: 100%; /* Ajusta a largura do textarea e da lista para ocupar o espaço disponível */
+    }
 }
 
-.button-container button {
-    flex: 1; /* Faz com que todos os botões tenham a mesma largura */
-    margin: 0 5px; /* Espaçamento entre os botões */
-}
-
-/* Mantém o estilo dos botões conforme o necessário */
-button {
-    padding: 10px 20px;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#saveButton {
-    background-color: #007bff; /* Cor do botão Salvar */
-}
-
-#saveButton:hover {
-    background-color: #0056b3;
-}
-
-#exportButton {
-    background-color: #28a745; /* Cor do botão Exportar */
-}
-
-#exportButton:hover {
-    background-color: #218838;
-}
-
-#clearAllButton {
-    background-color: #dc3545; /* Cor do botão Limpar Tudo */
-}
-
-#clearAllButton:hover {
-    background-color: #c82333;
-}
